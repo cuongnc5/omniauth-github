@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/omniauth-github/version', __FILE__)
+require File.expand_path('../lib/omniauth-map4d/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Cuong Nguyen"]
