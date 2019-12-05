@@ -2,11 +2,11 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class GitHub < OmniAuth::Strategies::OAuth2
+    class Map4d < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        :site => 'https://api.github.com',
-        :authorize_url => 'https://github.com/login/oauth/authorize',
-        :token_url => 'https://github.com/login/oauth/access_token'
+        :site => 'https://account.map4d.vn',
+        :authorize_url => 'https://account.map4d.vn/oauth/authorize',
+        :token_url => 'https://account.map4d.vn/oauth/access_token'
       }
 
       def request_phase
@@ -31,10 +31,7 @@ module OmniAuth
           'email' => email,
           'name' => raw_info['name'],
           'image' => raw_info['avatar_url'],
-          'urls' => {
-            'GitHub' => raw_info['html_url'],
-            'Blog' => raw_info['blog'],
-          },
+          'provider' => 'map4d',
         }
       end
 
@@ -44,7 +41,7 @@ module OmniAuth
 
       def raw_info
         access_token.options[:mode] = :query
-        @raw_info ||= access_token.get('user').parsed
+        @raw_info ||= access_token.get('api/get-user-info').parsed
       end
 
       def email
@@ -77,4 +74,4 @@ module OmniAuth
   end
 end
 
-OmniAuth.config.add_camelization 'github', 'GitHub'
+OmniAuth.config.add_camelization 'map4d', 'Map4d'
