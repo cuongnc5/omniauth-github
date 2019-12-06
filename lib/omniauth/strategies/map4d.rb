@@ -28,7 +28,7 @@ module OmniAuth
       info do
         {
           'nickname' => raw_info['login'],
-          'email' => email,
+          'email' => raw_info['email'],
           'name' => raw_info['name'],
           'image' => raw_info['avatar_url'],
           'provider' => 'map4d',

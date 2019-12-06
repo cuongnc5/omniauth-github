@@ -21,7 +21,7 @@ describe OmniAuth::Strategies::GitHub do
   end
 
   subject do
-    OmniAuth::Strategies::GitHub.new({})
+    OmniAuth::Strategies::Map4d.new({})
   end
 
   before(:each) do
@@ -30,15 +30,15 @@ describe OmniAuth::Strategies::GitHub do
 
   context 'client options' do
     it 'should have correct site' do
-      expect(subject.options.client_options.site).to eq('https://api.github.com')
+      expect(subject.options.client_options.site).to eq('https://account.map4d.vn/')
     end
 
     it 'should have correct authorize url' do
-      expect(subject.options.client_options.authorize_url).to eq('https://github.com/login/oauth/authorize')
+      expect(subject.options.client_options.authorize_url).to eq('https://account.map4d.vn/oauth/authorize')
     end
 
     it 'should have correct token url' do
-      expect(subject.options.client_options.token_url).to eq('https://github.com/login/oauth/access_token')
+      expect(subject.options.client_options.token_url).to eq('https://account.map4d.vn/oauth/access_token')
     end
 
     describe 'should be overrideable' do

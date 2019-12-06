@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in omniauth-github.gemspec
+# Specify your gem's dependencies in omniauth-map4d.gemspec
 gemspec
 
 group :development, :test do
